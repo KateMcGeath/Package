@@ -1,0 +1,55 @@
+---
+title: "Vignette Title"
+author: "Kate McGeath"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This package is an accumulation of 4 different functions that I have utilized throughout the semester.
+
+First, the Poisson function displays different graphs of the distribution dependent on the parameters.
+
+```{r}
+output <- package::mycltp(34, 1000)
+output
+getwd()
+```
+
+
+Next, the my read function reads in data and displays it in a table.
+
+```{r}
+output2 <- package::myread(dird = "/Users/katemcgeath/Desktop/MATH4753/", "DDT.csv")
+output2
+```
+
+
+Next, the bootstrap function creates a confidence interval for the parameters.
+
+```{r}
+ddt <- read.csv(file.choose())
+output3 <- package::myboot2(x = ddt$DDT)
+output3
+```
+
+
+Next, mymlbeta function creates maximum likelihood estimates for the parameters.
+
+```{r}
+sam = rbeta(30,shape1=3,shape2=4)
+sam = sample(sam,30,replace=TRUE)
+output4 <- package::mymlbeta(x = sam, alpha = seq(1, 4, length = 100), beta = seq(2, 8, length = 100), lwd = 2, labcex = 1)
+output4
+```
+
